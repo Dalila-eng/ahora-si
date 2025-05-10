@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gráfico ODS - Educación, Trabajo y Crecimiento Económico</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    /* Estilo general */
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #0f001a, #1a0040);
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    h1 {
+      color: #00f7ff;
+      text-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff;
+      margin-top: 50px;
+      font-size: 2.5rem; /* Ajusté el tamaño del título */
+    }
+
+    .description {
+      font-size: 1.2rem;
+      color: #e0e0ff;
+      margin-top: 20px;
+      line-height: 1.6;
+      text-align: justify;
+      padding: 0 20px;
+    }
+
+    /* Contenedor del gráfico */
+    .chart-container {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%; /* Hace que el gráfico se ajuste al 100% del contenedor */
+      max-width: 800px; /* Limita el tamaño máximo */
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Leyenda */
+    .legend {
+      margin-top: 30px;
+      font-size: 0.9rem;
+      color: #00f7ff;
+    }
+
+    .legend p {
+      margin: 5px 0;
+    }
+
+    .legend span {
+      margin-right: 10px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      color: #fff;
+    }
+
+    /* Colores de la leyenda */
+    .green {
+      background-color: #4CAF50;
+    }
+
+    .blue {
+      background-color: #2196F3;
+    }
+
+    .yellow {
+      background-color: #FFC107;
+    }
+
+    .purple {
+      background-color: #9C27B0;
+    }
+
+    .orange {
+      background-color: #FF5722;
+    }
+
+    .cyan {
+      background-color: #00BCD4;
+    }
+
+    /* Media Queries para Responsividad */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem; /* Reduce el tamaño del título en pantallas pequeñas */
+      }
+
+      .description {
+        font-size: 1rem; /* Reduce el tamaño del texto */
+        padding: 0 10px;
+      }
+
+      .legend {
+        font-size: 0.8rem; /* Reduce el tamaño de la leyenda */
+      }
+
+      .chart-container {
+        width: 90%; /* Hace que el gráfico ocupe más espacio en pantallas pequeñas */
+      }
+
+      /* Ajuste en las leyendas para pantallas pequeñas */
+      .legend span {
+        padding: 4px 8px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem; /* Ajusta aún más el tamaño del título */
+      }
+
+      .description {
+        font-size: 0.9rem;
+      }
+
+      .legend {
+        font-size: 0.7rem; /* Reducción adicional de la leyenda */
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Gráficos ODS - Educación, Trabajo Decente y Crecimiento Económico</h1>
+
+  <p class="description">
+    Los Objetivos de Desarrollo Sostenible (ODS) buscan promover la educación de calidad, trabajo decente y crecimiento económico, 
+    así como la innovación y la infraestructura en todo el mundo. Estos gráficos muestran la evolución de indicadores clave en estos ámbitos.
+  </p>
+
+  <!-- Gráfico -->
+  <div class="chart-container">
+    <canvas id="myChart" width="600" height="300"></canvas> <!-- Cambié el tamaño del canvas -->
+  </div>
+
+  <!-- Leyenda -->
+  <div class="legend">
+    <p><strong>Interpretación de los colores:</strong></p>
+    <p><span class="green">Verde</span> - Tasa de Empleo Juvenil</p>
+    <p><span class="blue">Azul</span> - Tasa de Alfabetización</p>
+    <p><span class="yellow">Amarillo</span> - Matriculación en Educación Primaria</p>
+    <p><span class="purple">Morado</span> - Matriculación en Educación Secundaria</p>
+    <p><span class="orange">Naranja</span> - Matriculación en Educación Terciaria</p>
+    <p><span class="cyan">Cian</span> - Porcentaje de Población con Acceso a Internet</p>
+  </div>
+
+  <script>
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['2015', '2020', '2023'],
+        datasets: [
+          {
+            label: 'Tasa de Empleo Juvenil (%)',
+            data: [55.8, 57.1, 58.3],  // Datos actualizados de empleo juvenil (fuente: OIT, 2021)
+            backgroundColor: '#4CAF50', // Verde
+          },
+          {
+            label: 'Tasa de Alfabetización (%)',
+            data: [86, 90, 92],  // Datos de alfabetización (fuente: UNESCO, 2023)
+            backgroundColor: '#2196F3', // Azul
+          },
+          {
+            label: 'Matriculación en Educación Primaria (%)',
+            data: [91, 92, 93],  // Datos de matriculación primaria (fuente: Banco Mundial, 2023)
+            backgroundColor: '#FFC107', // Amarillo
+          },
+          {
+            label: 'Matriculación en Educación Secundaria (%)',
+            data: [75, 80, 83],  // Datos de matriculación secundaria (fuente: UNESCO, 2023)
+            backgroundColor: '#9C27B0', // Morado
+          },
+          {
+            label: 'Matriculación en Educación Terciaria (%)',
+            data: [37, 42, 45],  // Datos de matriculación terciaria (fuente: Banco Mundial, 2022)
+            backgroundColor: '#FF5722', // Naranja
+          },
+          {
+            label: 'Porcentaje de Población con Acceso a Internet (%)',
+            data: [45, 60, 70],  // Datos de acceso a internet (fuente: ITU, 2023)
+            backgroundColor: '#00BCD4', // Cian
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        },
+        plugins: {
+          legend: {
+            display: true
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+
+</html>

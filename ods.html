@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objetivos de Desarrollo Sostenible (ODS)</title>
+  <link rel="stylesheet" href="estilos.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body 
+   
+    /* Acordeón */
+    .acordeon-item {
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      background-color: #ffffff;
+      overflow: hidden;
+      transition: box-shadow 0.3s;
+    }
+
+    .acordeon-item:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .encabezado {
+      background-color: #ffe0ef;
+      color: #cc0077;
+      padding: 15px;
+      cursor: pointer;
+      font-weight: bold;
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .encabezado:hover {
+      background-color: #ffc0de;
+    }
+
+    .icono {
+      transition: transform 0.3s ease;
+    }
+
+    .acordeon-item.activo .icono {
+      transform: rotate(180deg);
+    }
+
+    .contenido {
+      padding: 15px;
+      display: none;
+      background-color: #fff;
+      border-top: 1px solid #ddd;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MARQUESINA -->
+  <div class="marquesina-contenedor">
+    <p class="marquesina-texto">¡Comprometidos con el desarrollo sostenible a través de la educación!</p>
+  </div>
+
+  <!-- MENÚ DE NAVEGACIÓN -->
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="acerca.html">Acerca de nosotros</a>
+    <a href="ods.html">ODS</a>
+    <a href="mapa.html">Mapa de ODS</a>
+    <a href="grafica.html">Gráfica ODS</a>
+  </nav>
+
+  <!-- SECCIÓN ODS -->
+  <section>
+    <h1>Objetivos de Desarrollo Sostenible</h1>
+    <p>Nuestra misión es promover el uso de herramientas tecnológicas en la educación e informar sobre sus implicaciones y consecuencias en caso de una mala práctica.</p>
+  </section>
+
+  <section class="ods">
+    <h2>ODS 4: Educación de Calidad</h2>
+    <p>Mejorando el acceso a herramientas personalizadas de aprendizaje.</p>
+  </section>
+
+  <section class="ods">
+    <h2>ODS 8: Trabajo Decente y Crecimiento Económico</h2>
+    <p>Preparando a los estudiantes para la aplicación a trabajos de la industria tecnológica.</p>
+  </section>
+
+  <section class="ods">
+    <h2>ODS 9: Industria, Innovación e Infraestructura</h2>
+    <p>Promoviendo el uso y manejo de herramientas e infraestructura tecnológica orientadas al aprendizaje.</p>
+  </section>
+
+  <!-- ACORDEÓN DE PREGUNTAS -->
+  <section>
+    <h1>Preguntas Frecuentes sobre los ODS</h1>
+    <div class="acordeon">
+      <div class="acordeon-item">
+        <div class="encabezado">1. ¿Qué son los ODS? <span class="icono">▼</span></div>
+        <div class="contenido">
+          Son los Objetivos de Desarrollo Sostenible, los cuales fueron adoptados por líderes mundiales en 2015 con el objetivo de erradicar la pobreza, proteger el planeta y asegurar la prosperidad. Cada objetivo contiene metas específicas que deben alcanzarse en los próximos 15 años.
+        </div>
+      </div>
+
+      <div class="acordeon-item">
+        <div class="encabezado">2. ¿Cuántos ODS hay? <span class="icono">▼</span></div>
+        <div class="contenido">
+          Son 17 ODS, entre los cuales se encuentran: Educación de calidad, acción por el clima, hambre cero, entre otros.
+        </div>
+      </div>
+
+      <div class="acordeon-item">
+        <div class="encabezado">3. ¿Qué países los adoptaron? <span class="icono">▼</span></div>
+        <div class="contenido">
+          Todos los Estados Miembros de las Naciones Unidas.
+        </div>
+      </div>
+
+      <div class="acordeon-item">
+        <div class="encabezado">4. ¿Qué es el desarrollo sostenible? <span class="icono">▼</span></div>
+        <div class="contenido">
+          Es el desarrollo capaz de satisfacer las necesidades del presente sin comprometer la capacidad de las futuras generaciones para satisfacer sus propias necesidades. ONU, (2022).
+        </div>
+      </div>
+
+      <div class="acordeon-item">
+        <div class="encabezado">5. ¿Cómo se supervisan estos ODS? <span class="icono">▼</span></div>
+        <div class="contenido">
+          Se supervisan y examinan a nivel mundial mediante un conjunto de indicadores mundiales.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    $(document).ready(function () {
+      $(".encabezado").click(function () {
+        const item = $(this).parent();
+        item.toggleClass("activo");
+        item.find(".contenido").slideToggle();
+      });
+    });
+  </script>
+
+</body>
+</html>
